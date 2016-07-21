@@ -62,3 +62,4 @@ app.directive('randWord', function() {
     restrict: 'A',
     template: '<span ng-class="{{ word.class }}">{{word.string}} {{word.class}}</span>'
   }
+};
