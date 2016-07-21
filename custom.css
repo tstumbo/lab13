@@ -1,6 +1,14 @@
 body {
   font-size: 30px;
 }
+h1 {
+  color: pink;
+}
+button {
+  background-color: pink;
+  border: 3px solid grey;
+  border-radius: 5%;
+}
 p {
   border: 2px solid pink;
   border-radius: 5%;
