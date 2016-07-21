@@ -9,6 +9,9 @@ button {
   border: 3px solid grey;
   border-radius: 5%;
 }
+/*section {
+  display: inline-block;
+}*/
 p {
   border: 2px solid pink;
   border-radius: 5%;

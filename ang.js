@@ -3,13 +3,13 @@ var app = angular.module('chattyApp', []);
 //need two arrays. One for words, One for phrases
 app.controller('talk', function($scope) {
   // words
-  $scope.wordArr = ["Dog", "Home", "Candy", "Whyyyy?", "Gimmee", "AAAAAHH"];
+  $scope.wordArr = ["Doggie!", "Candy", "Whyyyy?", "Gimmee", "AAAAAHH", "NOW!!", "RAAAAAURRR!"];
   // phrases arrays
-  $scope.phraseArr = ["I didn't do it!", "Daddy, I'm hungry!", "Are we there yet?", "But Mommy lets me."];
+  $scope.phraseArr = ["I didn't do it!", "Daddy, I'm hungry!", "Are we there yet?", "But Mommy lets me.", "I'm so AAANGRY!", "I want it now!!", "Time for home"];
 
   // class arrays
 
-  $scope.classArr = ["bigger", "pink", "slide", "underline", "blink", "upperCase"];
+  $scope.classArr = ["bigger", "pink", "upperCase"];
   //words function
   $scope.madness = [];
   $scope.word = function() {
@@ -90,7 +90,7 @@ app.controller('talk', function($scope) {
       $scope.$apply(funcArr[Math.floor(Math.random() * (funcArr.length))]());
       console.log($scope.madness);
     }
-    setInterval(randBtn, 5000);
+    setInterval(randBtn, 1000);
 
 
 });
@@ -104,4 +104,3 @@ app.directive('randWord', function() {
 
 
 });
-
