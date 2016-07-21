@@ -6,8 +6,8 @@ app.controller('talk', function($scope) {
   $scope.wordArr = ["Dog", "House", "Candy", "Teddy Bear"];
   // phrases arrays
   $scope.phraseArr = ["I didn't do it!", "Daddy, I'm hungry!", "Are we there yet?"];
-  // filter arrays
-  $scope.filterArr = [uppercase];
+  // class arrays
+  $scope.classArr = ["bigger"];
   //words function
   $scope.madness = [];
   $scope.word = function() {
@@ -19,6 +19,7 @@ app.controller('talk', function($scope) {
     var newWord = {
       string: randWord,
     }
+    console.log(newWord)
     $scope.madness.push(newWord);
   }
     //Get random word from array
@@ -29,12 +30,12 @@ app.controller('talk', function($scope) {
     //get a random word from wordArr
     var wordIndex = Math.floor(Math.random() * ($scope.wordArr.length));
     var randWord = $scope.wordArr[wordIndex];
-    var filterIndex = Math.floor(Math.random() * ($scope.filterArr.length));
-    var randFilter = $scope.filterArr[filterIndex];
+    var classIndex = Math.floor(Math.random() * ($scope.classArr.length));
+    var randClass = $scope.classArr[classIndex];
     // console.log(index);
     var newWord = {
       string: randWord,
-      filter: randFilter
+      class: randClass
     };
     console.log(newWord);
     $scope.madness.push(newWord);
@@ -51,3 +52,9 @@ app.controller('talk', function($scope) {
     //Apply random decoration to phrase
     //append random phrase into <p>
 });
+app.directive('randWord', function() {
+  return {
+    restrict: 'A',
+    template: '<span ng-class="{{ word.class }}">{{word.string}} {{word.class}}</span>'
+  }
+})
