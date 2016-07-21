@@ -15,7 +15,8 @@
       <button ng-click="phraseDec()">Decorated phrase</button>
 
       <p>
-      <span rand-word ng-repeat="word in madness"></span> </p>
+      <!-- <span rand-word ng-repeat="word in madness"></span>  -->
+      <span ng-repeat="word in madness" class="{{ word.class }}">{{word.string + " "}}</span></p>
     </section>
     <script src="ang.js"></script>
   </body>

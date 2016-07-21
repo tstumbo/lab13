@@ -3,13 +3,13 @@ var app = angular.module('chattyApp', []);
 //need two arrays. One for words, One for phrases
 app.controller('talk', function($scope) {
   // words
-  $scope.wordArr = ["Dog", "House", "Candy", "Teddy Bear"];
+  $scope.wordArr = ["Dog", "Home", "Candy", "Whyyyy?", "Gimmee", "AAAAAHH"];
   // phrases arrays
-  $scope.phraseArr = ["I didn't do it!", "Daddy, I'm hungry!", "Are we there yet?"];
+  $scope.phraseArr = ["I didn't do it!", "Daddy, I'm hungry!", "Are we there yet?", "But Mommy lets me."];
 
   // class arrays
 
-  $scope.classArr = ["bigger"];
+  $scope.classArr = ["bigger", "pink", "slide", "underline", "blink", "upperCase"];
   //words function
   $scope.madness = [];
   $scope.word = function() {
@@ -49,16 +49,55 @@ app.controller('talk', function($scope) {
     //append random word into <p>
 
   //phrase function
+  $scope.phrase = function() {
+    console.log("hello");
+    //get a random phrase from phraseArr
+    var index = Math.floor(Math.random() * ($scope.phraseArr.length));
+    var randPhrase = $scope.phraseArr[index];
+    console.log(index);
+    var newPhrase = {
+      string: randPhrase,
+    }
+    console.log(newPhrase)
+    $scope.madness.push(newPhrase);
+  }
     //get random phrase from array
     //append random phrase into <p>
   //phraseDec function
+  $scope.phraseDec = function() {
+    console.log("hello");
+    //get a random phrase from phraseArr
+    var phraseIndex = Math.floor(Math.random() * ($scope.phraseArr.length));
+    var randPhrase = $scope.phraseArr[phraseIndex];
+
+    var classIndex = Math.floor(Math.random() * ($scope.classArr.length));
+    var randClass = $scope.classArr[classIndex];
+    // console.log(index);
+    var newPhrase = {
+      string: randPhrase,
+      class: randClass
+
+    };
+    console.log(newPhrase);
+    $scope.madness.push(newPhrase);
+  }
     //Get random phrase from array
     //Apply random decoration to phrase
     //append random phrase into <p>
+
+    function randBtn() {
+      var funcArr = [$scope.word, $scope.wordDec, $scope.phrase, $scope.phraseDec];
+      $scope.$apply(funcArr[Math.floor(Math.random() * (funcArr.length))]());
+      console.log($scope.madness);
+    }
+    setInterval(randBtn, 5000);
+
+
 });
 
 app.directive('randWord', function() {
   return {
     restrict: 'A',
-    template: '<span ng-class="{{ word.class }}">{{word.string}} {{word.class}}</span>'
+    template: '<span class="{{ word.class }}">{{word.string}} {{word.class}}</span>'
   }
+});
