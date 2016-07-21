@@ -100,4 +100,8 @@ app.directive('randWord', function() {
     restrict: 'A',
     template: '<span class="{{ word.class }}">{{word.string}} {{word.class}}</span>'
   }
+
+
+
 });
+
