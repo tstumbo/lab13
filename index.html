@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.min.js"></script>
+  </head>
+  <body ng-app="chattyApp">
+    <section ng-controller="talk">
+      <button ng-click="word()">Word</button>
+      <button ng-click="wordDec()">Decorated word</button>
+      <button ng-click="phrase()">Phrase</button>
+      <button ng-click="phraseDec()">Decorated phrase</button>
+      <p ng-repeat="word in madness">Hello {{ word.string | word.filter }}</p>
+    </section>
+    <script src="ang.js"></script>
+  </body>
+</html>
